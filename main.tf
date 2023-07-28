@@ -1,22 +1,26 @@
+locals {
+  namespace         = "cumberland-cloud"
+}
+
 module "key" {
-  source            = "../modules/kms"
+  source            = "https://github.com/cumberland-cloud/modules-kms.git?ref=v1.0.0"
 
   key               = {
-    alias           = "cumberland-cloud-gateway-state"
+    alias           = "${local.project}-state"
   }
 }
 
 module "bucket" {
-  source            = "../modules/s3"
+  source            = "https://github.com/cumberland-cloud/modules-s3.git?ref=v1.0.0"
 
   bucket            = {
-    name            = "cumberland-cloud-gateway-terraform-state"
-    kms_key_arn     = module.key.arn
+    name            = "${local.project}-terraform-state"
+    key             = module.key.arn
   }
 }
 
 resource "aws_dynamodb_table" "this" {
-  name              = "cumberland-cloud-gateway-terraform-lock"
+  name              = "${local.project}-terraform-locks"
   hash_key          = "LockID"
   read_capacity     = 20
   write_capacity    = 20

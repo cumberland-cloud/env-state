@@ -1,8 +1,10 @@
 provider "aws" {
   default_tags    = {
-    Project       = "Cumberland Cloud"
-    Environment   = "Development"
-    Owner         = "Grant Moore"
-    Contact       = "chinchalinchin@gmail.com"
-  }
+        Contact         = "chinchalinchin@gmail.com"
+        Component       = "State"
+        Environment     = "Production"
+        Owner           = "Grant Moore"
+        Maintainer      = "Grant Moore"
+        Project         = "Cumberland Cloud"
+    }
 }
