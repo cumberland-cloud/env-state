@@ -1,0 +1,20 @@
+# Terraform Docs
+
+<!-- BEGIN_TF_DOCS -->
+
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | https://github.com/cumberland-cloud/modules-s3.git | v1.0.0 |
+| <a name="module_key"></a> [key](#module\_key) | https://github.com/cumberland-cloud/modules-kms.git | v1.0.0 |
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->  
