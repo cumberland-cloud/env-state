@@ -24,3 +24,4 @@ jobs:
   Release:
     uses: cumberland-cloud/workflows/.github/workflows/tf-release.yaml@master
     needs: [ Scan, Lint ]
+    secrets: inherit
