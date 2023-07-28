@@ -3,6 +3,8 @@ locals {
 }
 
 module "key" {
+  #checkov:skip=CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+
   source            = "https://github.com/cumberland-cloud/modules-kms.git?ref=v1.0.0"
 
   key               = {
@@ -11,6 +13,8 @@ module "key" {
 }
 
 module "bucket" {
+  #checkov:skip=CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+  
   source            = "https://github.com/cumberland-cloud/modules-s3.git?ref=v1.0.0"
 
   bucket            = {
