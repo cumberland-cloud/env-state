@@ -1,14 +1,10 @@
 name: terraform workflows
-
 on:
   push:
   pull_request:
     branches:
-      - dev
       - master
-      - main
   workflow_dispatch:
-
 jobs:
   Scan:
     if: ${{ github.event_name == 'push' }}
@@ -21,3 +17,9 @@ jobs:
     uses: cumberland-cloud/workflows/.github/workflows/gh-pages.yaml@master
     with:
       TFDOCS: true
+  Release:
+    uses: cumberland-cloud/workflows/.github/workflows/tf-release.yaml@master
+    needs: [ Scan, Lint ]
+    secrets: inherit
+    with:
+      TF_APPLY: false
