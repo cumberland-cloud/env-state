@@ -1,5 +1,5 @@
 module "key" {
-  source            = "../modules/kms"
+  source            = "https://github.com/cumberland-cloud/modules-kms.git?ref=v1.0.0"
 
   key               = {
     alias           = "cumberland-cloud-gateway-state"
@@ -7,7 +7,7 @@ module "key" {
 }
 
 module "bucket" {
-  source            = "../modules/s3"
+  source            = "https://github.com/cumberland-cloud/modules-s3.git?ref=v1.0.0"
 
   bucket            = {
     name            = "cumberland-cloud-gateway-terraform-state"
