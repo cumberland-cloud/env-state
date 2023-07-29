@@ -26,4 +26,4 @@ jobs:
     needs: [ Scan, Lint ]
     secrets: inherit
     with:
-      TF_DEPLOY: false
+      TF_APPLY: false
