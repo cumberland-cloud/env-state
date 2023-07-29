@@ -7,8 +7,8 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_bucket"></a> [bucket](#module\_bucket) | https://github.com/cumberland-cloud/modules-s3.git | v1.0.0 |
-| <a name="module_key"></a> [key](#module\_key) | https://github.com/cumberland-cloud/modules-kms.git | v1.0.0 |
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | github.com/cumberland-cloud/modules-s3.git | v1.0.0 |
+| <a name="module_key"></a> [key](#module\_key) | github.com/cumberland-cloud/modules-kms.git | v1.0.0 |
 
 ## Inputs
 
