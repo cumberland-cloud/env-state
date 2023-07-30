@@ -1,0 +1,1 @@
+aws s3 cp terraform.tfstate s3://cumberland-cloud-terraform-state/local/terraform.tfstate 

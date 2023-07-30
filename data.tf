@@ -3,7 +3,7 @@ data "aws_caller_identity" "current" {}
 data "aws_iam_policy_document" "state" {
 
     statement {
-        sid             = "TFStatePerms"
+        sid             = "AllowS3Actions"
         effect          = "Allow"
         actions         = [
             "s3:Get*",
@@ -13,14 +13,24 @@ data "aws_iam_policy_document" "state" {
     }
 
     statement {
-        sid         = "DenyACLActions"
-        effect      = "Deny"
-        actions     = [
+        sid             = "DenyS3Actions"
+        effect          = "Deny"
+        actions         = [
             "s3:Delete*",
             "s3:PutBucketAcl",
             "s3:PutObjectAcl",
             "s3:PutObjectVersionAcl"
         ]
-        resources   = local.bucket_arns
+        resources       = local.bucket_arns
+    }
+
+    statement {
+        sid             = "AllowDynamoActions"
+        effect          = "Allow"
+        actions         = [
+            "dynamodb:PutItem",
+            "dynamodb:GetItem"
+        ]
+        resources       = [ aws_dynamodb_table.this.arn ]
   }
 }
