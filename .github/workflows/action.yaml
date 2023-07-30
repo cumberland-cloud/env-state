@@ -21,3 +21,7 @@ jobs:
     uses: cumberland-cloud/workflows/.github/workflows/gh-pages.yaml@master
     with:
       TFDOCS: true
+  Release:
+    uses: cumberland-cloud/workflows/.github/workflows/tf-release.yaml@master
+    needs: [ Scan, Lint ]
+    secrets: inherit
