@@ -1,6 +1,7 @@
 data "aws_caller_identity" "current" {}
 
-data "aws_iam_policy_document" "platform" { # TODO: policy for tenant access
+data "aws_iam_policy_document" "state" {
+
     statement {
         sid             = "TFStatePerms"
         effect          = "Allow"
@@ -9,13 +10,6 @@ data "aws_iam_policy_document" "platform" { # TODO: policy for tenant access
             "s3:List*"
         ]
         resources       = local.bucket_arns
-
-        principals {
-            type        =  "AWS"
-            identifiers = [
-                "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
-            ]
-        }
     }
 
     statement {

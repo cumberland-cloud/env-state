@@ -4,7 +4,7 @@ module "key" {
   source            = "github.com/cumberland-cloud/modules-kms.git?ref=v1.0.0"
 
   key               = {
-    alias           = "${local.namespace}-state"
+    alias           = "${local.namespace}-terraform-state"
   }
 }
 

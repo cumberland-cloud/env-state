@@ -17,3 +17,11 @@ resource "aws_dynamodb_table" "this" {
     kms_key_arn     = module.key.key.arn
   }
 }
+
+
+
+resource "aws_iam_policy" "this" {
+    name                    = "${local.namespace}-terraform-state-policy"
+    description             = "Identity-based policy enabled access to Terraform State S3 Bucket"
+    policy                  = data.aws_iam_policy_document.state.json
+}
