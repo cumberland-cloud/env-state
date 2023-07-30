@@ -1,7 +1,6 @@
 data "aws_caller_identity" "current" {}
 
 data "aws_iam_policy_document" "state" {
-
     statement {
         sid             = "AllowS3Actions"
         effect          = "Allow"
@@ -32,5 +31,16 @@ data "aws_iam_policy_document" "state" {
             "dynamodb:GetItem"
         ]
         resources       = [ aws_dynamodb_table.this.arn ]
-  }
+    }
+
+    statement {
+        sid             = "AllowKMSActions"
+        effect          = "Allow"
+        actions         = [
+            "kms:DescribeKey",
+            "kms:GenerateDataKey",
+            "kms:Decrypt"    
+        ]
+        resources       = [ module.key.key.arn ]
+    }
 }
