@@ -28,7 +28,8 @@ data "aws_iam_policy_document" "state" {
         effect          = "Allow"
         actions         = [
             "dynamodb:PutItem",
-            "dynamodb:GetItem"
+            "dynamodb:GetItem",
+            "dynamodb:DeleteItem"
         ]
         resources       = [ aws_dynamodb_table.this.arn ]
     }
