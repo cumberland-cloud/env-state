@@ -10,5 +10,5 @@ locals {
     id              = "s3-tfstate-replicator"
     name            = "s3-tfstate-replicator"
   }
-  root_arn          = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+  # root_arn          = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
 }
